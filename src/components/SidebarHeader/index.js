@@ -14,7 +14,7 @@ const SidebarHeader = ({ setUserChat }) => {
   const [chatsSnapshot] = useCollection(refChat);
 
   const handleCreateChat = () => {
-    const emailInput = prompt("Escreva o e-mal desejado");
+    const emailInput = prompt("Escreva o e-mail desejado");
 
     if (!emailInput) return;
 
@@ -34,8 +34,8 @@ const SidebarHeader = ({ setUserChat }) => {
   const chatExists = (emailChat) => {
     return !!chatsSnapshot?.docs.find(
       (chat) => chat.data().users.find((user) => user === emailChat)?.length > 0
-    )
-  }
+    );
+  };
 
   return (
     <C.Container>
