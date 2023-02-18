@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        width: 100vh;
+        width: 100vw;
         height: 100vh;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     }
