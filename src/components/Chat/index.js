@@ -1,14 +1,17 @@
 import React from "react";
-import { Circle } from "better-react-spinkit";
+import ChatHeader from "../ChatHeader"
 import * as C from "./styles";
-import Login from "../Login";
+import ChatBody from "../ChatBody"
+import ChatFooter from "../ChatFooter"
 
-const Loading = () => {
+const Chat = ({ userChat }) => {
     return (
         <C.Container>
-        <Circle />
+            <ChatHeader photoURL={userChat?.photoURL} name={userChat?.name} />
+            <ChatBody chatId={userChat?.chatId} />
+            <ChatFooter chatId={userChat?.chatId} />
         </C.Container>
     )
 }
 
-export default Login;
+export default Chat;

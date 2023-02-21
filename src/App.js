@@ -5,10 +5,11 @@ import Loading from "./components/Loading";
 import Login from "./components/Login";
 import Sidebar from "./components/Sidebar";
 import * as C from "./styles/app";
+import Chat from "./components/Chat";
 
 const App = () => {
   const [user, loading] = useAuthState(auth);
-  const [userChat, setuserChat] = useState(null);
+  const [userChat, setUserChat] = useState(null);
 
 
   useEffect(() => {
@@ -26,7 +27,8 @@ const App = () => {
 
   return (
     <C.Container>
-      <Sidebar />
+      <Sidebar setUserChat={setUserChat} userChat={userChat} />
+      <Chat userChat={userChat} />
     </C.Container>
   );
 };

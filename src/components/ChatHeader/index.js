@@ -1,14 +1,22 @@
 import React from "react";
-import { Circle } from "better-react-spinkit";
 import * as C from "./styles";
-import Login from "../Login";
+import { MdPerson, MdMoreVert, MdSearch } from "react-icons/md";
 
-const Loading = () => {
-    return (
-        <C.Container>
-        <Circle />
-        </C.Container>
-    )
-}
+const ChatHeader = ({ photoURL, name }) => {
+  return (
+    <C.Container>
+      <C.UserInfo>
+        {photoURL ? <C.Avatar src={photoURL} alt="Avatar" /> : <MdPerson />}
+        <C.NameContent>
+          <C.Name>{name}</C.Name>
+        </C.NameContent>
+      </C.UserInfo>
+      <C.Options>
+        <MdSearch />
+        <MdMoreVert />
+      </C.Options>
+    </C.Container>
+  );
+};
 
-export default Login;
+export default ChatHeader;
