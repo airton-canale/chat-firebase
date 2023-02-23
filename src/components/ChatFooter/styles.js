@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 10px 20px;
   background-color: #f0f2f5;
   display: flex;
-  box-shadow: 2px 1px 3px 1px #000300;
+  box-shadow: 2px 1px 3px 1px #0003;
 
   svg {
     width: 25px;

@@ -18,7 +18,7 @@ const SidebarChatsItem = ({ id, users, user, setUserChat, active }) => {
   const handleNewChat = () => {
     const userChat = {
       chatId: id,
-      name: item.split["@"][0],
+      name: item.split("@")[0],
       photoURL: Avatar?.photoURL,
     };
     setUserChat(userChat);

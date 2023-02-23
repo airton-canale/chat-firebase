@@ -25,5 +25,4 @@ export const Info = styled.span`
   font-size: 18px;
   text-align: center;
   max-width: 500px;
-
-`
+`;

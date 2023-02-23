@@ -8,11 +8,11 @@ const Message = ({ user, message }) => {
 
   return (
     <C.Container>
-      <C.Line className={userLoggedIn?.email === "user" ? "me" : ""}>
+      <C.Line className={userLoggedIn?.email === user ? "me" : ""}>
         <C.Content>
           <C.Message>{message.message}</C.Message>
           <C.MessageDate>
-            {new Date(message?.timestamp).toLocaleDateString()}
+            {new Date(message?.timestamp).toLocaleString()}
           </C.MessageDate>
         </C.Content>
       </C.Line>

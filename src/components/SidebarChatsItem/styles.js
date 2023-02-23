@@ -20,7 +20,7 @@ export const Container = styled.div`
     min-width: fit-content;
   }
 
-  &:active {
+  &.active {
     background-color: #f0f2f5;
   }
 `;
