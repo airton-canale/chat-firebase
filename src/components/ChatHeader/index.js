@@ -6,7 +6,7 @@ const ChatHeader = ({ photoURL, name }) => {
   return (
     <C.Container>
       <C.UserInfo>
-        {photoURL ? <C.Avatar src={photoURL} alt="Avatar" /> : <MdPerson />}
+        {photoURL ? <C.Avatar src={photoURL} alt="Avatar" referrerpolicy="no-referrer" /> : <MdPerson />}
         <C.NameContent>
           <C.Name>{name}</C.Name>
         </C.NameContent>

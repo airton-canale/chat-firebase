@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../../services/firebase";
 import * as C from "./styles";
 import { MdPerson } from "react-icons/md";
+
+const notification = new Audio("https://mobcup.net/va/MMhRD7KKx3QZvDCFL");
 
 const getUser = (users, userLogged) =>
   users?.filter((user) => user !== userLogged?.email)[0];
@@ -11,6 +13,25 @@ const SidebarChatsItem = ({ id, users, user, setUserChat, active }) => {
   const [getUserItem] = useCollection(
     db.collection("users").where("email", "==", getUser(users, user))
   );
+  useEffect(() => {
+    notification.load();
+    notification.volume = 0;
+    setTimeout(() => {
+      notification.volume = 1;
+    }, 1500);
+  }, []);
+
+  const [messagesRes] = useCollection(
+    db
+      .collection("chats")
+      .doc(id)
+      .collection("messages")
+      .where("user", "!=", user.email)
+  );
+
+  useEffect(() => {
+    notification.play();
+  }, [messagesRes]);
 
   const Avatar = getUserItem?.docs?.[0]?.data();
   const item = getUser(users, user);

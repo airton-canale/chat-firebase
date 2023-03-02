@@ -1,10 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { db } from "../../services/firebase";
+import { auth, db } from "../../services/firebase";
 import * as C from "./styles";
 import { useCollection } from "react-firebase-hooks/firestore";
 import Message from "../Message";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getMessaging, onMessage } from "firebase/messaging";
 
 const ChatBody = ({ chatId }) => {
+  const [userLoggedIn] = useAuthState(auth);
+
   const [messagesRes] = useCollection(
     db
       .collection("chats")
@@ -16,9 +20,16 @@ const ChatBody = ({ chatId }) => {
   const refBody = useRef("");
 
   useEffect(() => {
+    const messaging = getMessaging();
+    onMessage(messaging, (payload) => console.log("chegou", payload));
+  }, [onMessage, getMessaging]);
+
+  useEffect(() => {
     if (refBody.current.scrollHeight > refBody.current.offsetHeight) {
-      refBody.current.scrollTop =
-        refBody.current.scrollHeight - refBody.current.offsetHeight;
+      refBody.current.scrollTo({
+        top: refBody.current.scrollHeight - refBody.current.offsetHeight,
+        behavior: "smooth",
+      });
     }
   }, [messagesRes]);
 
