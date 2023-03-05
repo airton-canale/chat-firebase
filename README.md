@@ -39,7 +39,7 @@ This app shows a project similar to Whats App layout that you can communicate wi
 
  ```bash
 # Running deploy
-$ npm run deploy
+$ yarn run deploy
 ```
 <br>
 
@@ -54,10 +54,10 @@ $ git clone git@github.com:airton-canale/chat-firebase.git
 $ cd chat-firebase
 
 # Install dependencies
-$ npm install
+$ yarn install
 
 # Running scripts
-$ npm start
+$ yarn start
 ```
 - And enter in your browser using http://localhost:3000
 
